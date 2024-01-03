@@ -12,4 +12,5 @@ export default registerAs('database', () => ({
   logging: process.env.NODE_ENV === 'development',
   migrations: [`${__dirname}/../../db/migrations/*{.ts,.js}`],
   migrationsTableName: 'migrations',
+  schema: process.env.DB_SCHEMA,
 }));
