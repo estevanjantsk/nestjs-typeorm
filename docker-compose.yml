@@ -1,27 +1,16 @@
 version: '3.8'
 
-networks:
-  databases:
-    name: databases
-
 services:
   postgresql:
     image: postgres:latest
-    container_name: postgresql
     depends_on:
       - adminer
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    networks:
-      - databases
   adminer:
     image: adminer
-    container_name: adminer
     restart: always
     ports:
       - 8080:8080
-    networks:
-      - databases
